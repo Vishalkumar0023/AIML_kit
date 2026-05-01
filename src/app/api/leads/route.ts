@@ -68,7 +68,11 @@ export async function POST(request: Request) {
       }
     }
 
-    await fs.writeFile(LEADS_FILE, JSON.stringify([leadRecord, ...leads], null, 2), "utf8");
+    try {
+      await fs.writeFile(LEADS_FILE, JSON.stringify([leadRecord, ...leads], null, 2), "utf8");
+    } catch (fsError) {
+      console.error("Local file save failed (expected on Vercel):", fsError);
+    }
 
     return Response.json({ success: true });
   } catch (err) {
