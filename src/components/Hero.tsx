@@ -43,30 +43,30 @@ export default function Hero() {
     <section className="relative overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#eef4ff_100%)]">
       <div className="ambient-orb absolute left-6 top-12 hidden h-40 w-40 rounded-full bg-blue-200/40 blur-3xl sm:block" />
       <div className="ambient-orb absolute right-12 top-20 hidden h-44 w-44 rounded-full bg-amber-200/40 blur-3xl sm:block" />
-      <div className="section-shell grid gap-12 pb-16 pt-12 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:pb-20 lg:pt-16">
+      <div className="section-shell grid gap-8 pb-10 pt-8 sm:gap-10 sm:pb-14 sm:pt-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-12 lg:pb-16 lg:pt-12">
         <div className="max-w-2xl">
           <div className="inline-flex rounded-full border border-blue-200 bg-white px-4 py-2 text-sm font-semibold text-blue-800 shadow-sm">
             {siteContent.hero.badge}
           </div>
 
-          <div className="mt-6">
+          <div className="mt-4">
             <div className="min-h-[2.5rem] text-xl font-semibold tracking-tight text-slate-700 sm:min-h-[2.75rem] sm:text-2xl lg:text-3xl">
               <span className="inline-flex max-w-full items-end gap-1 whitespace-nowrap">
                 <span className="whitespace-nowrap">{displayedText}</span>
                 {displayedText ? <span aria-hidden="true" className="type-cursor" /> : null}
               </span>
             </div>
-            <h1 className="mt-2 text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-2 text-3xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">
               <span className="block">Your Python Basics</span>
               <span className="block">Are Weak.</span>
             </h1>
           </div>
 
-          <p className="mt-6 text-base leading-8 text-slate-700 sm:text-lg">
+          <p className="mt-4 text-sm leading-7 text-slate-700 sm:text-base sm:leading-8">
             {siteContent.hero.subheadline}
           </p>
 
-          <div className="mt-7 grid gap-3">
+          <div className="mt-5 grid gap-2">
             {siteContent.hero.benefits.map((item) => (
               <div
                 key={item}
@@ -80,7 +80,7 @@ export default function Hero() {
             ))}
           </div>
 
-          <div className="mt-8 flex items-end gap-3">
+          <div className="mt-6 flex items-end gap-3">
             <div className="rounded-[1.5rem] border border-amber-200 bg-white p-4 shadow-sm">
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">
                 Launch Price
@@ -96,7 +96,7 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <CTAButton
               paymentLink={siteContent.links.paymentLink}
               showPaymentFlow

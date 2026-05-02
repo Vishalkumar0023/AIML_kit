@@ -317,40 +317,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-space bg-white">
-        <div className="section-shell grid gap-8 lg:grid-cols-2">
-          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 sm:p-8">
-            <SectionHeading title={siteContent.audienceSection.title} />
-            <div className="mt-8 grid gap-3">
-              {siteContent.audienceSection.items.map((item) => (
-                <div
-                  key={item}
-                  className="marketing-card flex gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-4 text-sm text-slate-700"
-                >
-                  <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 sm:p-8">
-            <SectionHeading title={siteContent.notForSection.title} />
-            <div className="mt-8 grid gap-3">
-              {siteContent.notForSection.items.map((item) => (
-                <div
-                  key={item}
-                  className="marketing-card rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-sm text-slate-700"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section id="pricing" className="section-space scroll-mt-28 bg-slate-50">
         <div className="section-shell">
@@ -362,7 +329,7 @@ export default function HomePage() {
       </section>
 
       <section id="free-roadmap" className="section-space scroll-mt-28 bg-white">
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <div className="section-shell grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <SectionHeading
               eyebrow="Free Roadmap"
@@ -390,37 +357,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="faq" className="section-space scroll-mt-28 bg-slate-50">
-        <div className="section-shell">
-          <SectionHeading title={siteContent.faqSection.title} align="center" />
-          <div className="mx-auto mt-10 max-w-4xl">
-            <FAQAccordion items={siteContent.faqSection.items} />
-          </div>
-        </div>
-      </section>
-
       <section className="section-space bg-white">
         <div className="section-shell">
-          <div className="marketing-card rounded-[2rem] border border-slate-200 bg-gradient-to-r from-slate-950 to-blue-950 p-8 text-white shadow-sm sm:p-12">
+          <div className="marketing-card rounded-[2rem] border border-slate-200 bg-gradient-to-r from-slate-950 to-blue-950 p-6 text-white shadow-sm sm:p-10 md:p-12">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-amber-300">Final CTA</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
               {siteContent.finalCta.title}
             </h2>
-            <div className="mt-8 grid gap-4 lg:grid-cols-2">
+            <div className="mt-6 grid gap-4 sm:mt-8 md:grid-cols-2">
               <div className="marketing-card rounded-[1.5rem] border border-slate-800 bg-white/5 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">
                   Option 1
                 </p>
-                <p className="mt-2 text-lg font-medium text-white">{siteContent.finalCta.optionOne}</p>
+                <p className="mt-2 text-base font-medium text-white sm:text-lg">{siteContent.finalCta.optionOne}</p>
               </div>
               <div className="marketing-card rounded-[1.5rem] border border-amber-300/30 bg-amber-400/10 p-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-200">
                   Option 2
                 </p>
-                <p className="mt-2 text-lg font-medium text-white">{siteContent.finalCta.optionTwo}</p>
+                <p className="mt-2 text-base font-medium text-white sm:text-lg">{siteContent.finalCta.optionTwo}</p>
               </div>
             </div>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
               <CTAButton
                 paymentLink={siteContent.links.paymentLink}
                 showPaymentFlow
@@ -432,6 +390,15 @@ export default function HomePage() {
                 {siteContent.finalCta.secondaryCta}
               </CTAButton>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="section-space scroll-mt-28 bg-slate-50">
+        <div className="section-shell">
+          <SectionHeading title={siteContent.faqSection.title} align="center" />
+          <div className="mx-auto mt-10 max-w-4xl">
+            <FAQAccordion items={siteContent.faqSection.items} />
           </div>
         </div>
       </section>
