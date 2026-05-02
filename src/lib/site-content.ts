@@ -345,7 +345,7 @@ export const siteContent = {
     originalPrice: "₹299",
     cta: "Buy Now for ₹99",
     note:
-      "Manual access delivery in v1. No instant automatic delivery yet. After UPI payment, send your screenshot on Instagram DM, Telegram, or email for verification.",
+      "Razorpay checkout is automatic. Product delivery is manual after payment verification. Buyers can send the transaction details from the thank-you page on Instagram, Telegram, or email to receive the Google Drive link.",
     included: [
       "Python Basics Notes PDF",
       "50 Python Interview Q&A",
@@ -360,9 +360,10 @@ export const siteContent = {
     ].map((label) => ({ label })) satisfies PricingFeature[],
     deliverySteps: [
       "Click Buy Now",
-      "Complete UPI payment",
-      "Send payment screenshot on Instagram DM, Telegram, or email",
-      "Get Google Drive access after verification"
+      "Enter your buyer email and complete the Razorpay checkout",
+      "Complete Razorpay payment securely",
+      "Send payment/order details from the thank-you page",
+      "Receive the Google Drive link manually"
     ]
   },
   roadmapLead: {
@@ -394,7 +395,7 @@ export const siteContent = {
       {
         question: "How will I receive the product?",
         answer:
-          "After payment verification, the product link will be shared through email. You can send your payment screenshot on Instagram DM, Telegram, or email for verification."
+          "After Razorpay payment verification, the thank-you page shows your order and payment details. Send those details on Instagram, Telegram, or email to receive the Google Drive link manually."
       },
       {
         question: "Is there a refund?",
@@ -438,10 +439,10 @@ export const siteContent = {
     cta: "Buy Now"
   },
   thankYou: {
-    title: "Thanks for your interest.",
-    body: "Please check your email for the next update from Vishal AI Academy.",
+    title: "Payment update received.",
+    body: "We are checking your payment and delivery status now.",
     reminder:
-      "If you purchased the kit, send your payment screenshot on Instagram DM, Telegram, or email for verification.",
+      "If your payment was captured, send the order details shown here on Instagram, Telegram, or email to receive the Google Drive link manually.",
     primaryCta: "Back to Home",
     secondaryCta: "Contact Support"
   },

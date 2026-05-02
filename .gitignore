@@ -29,6 +29,7 @@ yarn-error.log*
 
 # env files (keep .env.example if you have one, but ignore the rest)
 .env
+.vercel-production-import.env
 .env*.local
 .env.development.local
 .env.test.local
@@ -43,3 +44,15 @@ next-env.d.ts
 
 # User Data (Do not commit PII)
 data/leads.json
+data/purchases.json
+
+# python bundle tooling
+__pycache__/
+*.py[cod]
+
+# paid bundle workspace
+paid_Bundle/
+
+# local asset/script workspaces
+public/
+scripts/

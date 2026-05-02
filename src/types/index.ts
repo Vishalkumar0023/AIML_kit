@@ -56,3 +56,42 @@ export type LeadRecord = LeadFormPayload & {
   id: string;
   createdAt: string;
 };
+
+export type PurchaseFormPayload = {
+  fullName: string;
+  paymentEmail: string;
+  driveAccessEmail?: string;
+  phone?: string;
+};
+
+export type PurchaseRecord = {
+  id: string;
+  fullName: string;
+  paymentEmail: string;
+  driveAccessEmail: string;
+  phone?: string;
+  amount: number;
+  currency: string;
+  productName: string;
+  receipt: string;
+  providerOrderId?: string;
+  providerPaymentId?: string;
+  paymentStatus:
+    | "created"
+    | "checkout_opened"
+    | "authorized"
+    | "captured"
+    | "failed"
+    | "verification_pending";
+  deliveryStatus:
+    | "not_started"
+    | "pending_capture"
+    | "granted"
+    | "failed"
+    | "config_missing"
+    | "link_ready"
+    | "manual_review";
+  notes?: string;
+  createdAt: string;
+  updatedAt: string;
+};

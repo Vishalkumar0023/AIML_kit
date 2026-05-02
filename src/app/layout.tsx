@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import PaymentFollowupChooser from "@/components/PaymentFollowupChooser";
 import { siteContent } from "@/lib/site-content";
 import "./globals.css";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="bg-slate-50 text-slate-900 antialiased">
         {children}
         <PaymentFollowupChooser />
+        <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
       </body>
     </html>
   );

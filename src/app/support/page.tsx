@@ -16,9 +16,9 @@ export default function SupportPage() {
               <SectionHeading title={siteContent.support.title} description={siteContent.support.body} />
             </div>
             <div className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 shadow-[0_24px_80px_rgba(15,23,42,0.08)]">
-              For payment verification or access issues, keep your payment screenshot ready before
-              contacting support. For a simple v1 workflow, Telegram or email is better than using
-              a personal WhatsApp number publicly.
+              For payment or access issues, keep your payment email, Google Drive access email, and
+              order details ready before contacting support. If automatic delivery fails, support can
+              use those details to recheck the order faster.
             </div>
           </div>
           <LeadForm variant="support" />

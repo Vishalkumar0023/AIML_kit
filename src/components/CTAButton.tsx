@@ -27,13 +27,14 @@ export default function CTAButton({
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
+    if (showPaymentFlow) {
+      window.dispatchEvent(new CustomEvent("purchase-flow"));
+      return;
+    }
+
     if (paymentLink !== undefined) {
       if (paymentLink.trim()) {
-        if (showPaymentFlow) {
-          window.dispatchEvent(new CustomEvent("payment-followup"));
-        } else {
-          window.open(paymentLink, "_blank", "noopener,noreferrer");
-        }
+        window.open(paymentLink, "_blank", "noopener,noreferrer");
 
         return;
       }
