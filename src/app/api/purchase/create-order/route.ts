@@ -40,19 +40,25 @@ export async function POST(request: Request) {
       notes: {
         buyer_name: draft.fullName,
         payment_email: draft.paymentEmail,
-        delivery_email: draft.paymentEmail
+        delivery_email: draft.paymentEmail,
+        buyer_phone: draft.phone ?? ""
       }
     });
 
-    const updated = await updatePurchase(
-      draft.id,
-      {
-        providerOrderId: order.id,
-        paymentStatus: "checkout_opened",
-        notes: `Razorpay order created with receipt ${draft.receipt}.`
-      },
-      "razorpay_order_created"
-    );
+    let updated = null;
+    try {
+      updated = await updatePurchase(
+        draft.id,
+        {
+          providerOrderId: order.id,
+          paymentStatus: "checkout_opened",
+          notes: `Razorpay order created with receipt ${draft.receipt}.`
+        },
+        "razorpay_order_created"
+      );
+    } catch (error) {
+      console.warn("Unable to persist order creation locally.", error);
+    }
 
     return Response.json({
       keyId: process.env.RAZORPAY_KEY_ID,

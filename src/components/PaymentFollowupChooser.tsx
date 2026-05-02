@@ -140,6 +140,16 @@ export default function PaymentFollowupChooser() {
               verifyData.orderId
             )}&deliveryStatus=${encodeURIComponent(
               verifyData.deliveryStatus
+            )}&fullName=${encodeURIComponent(
+              verifyData.fullName ?? form.fullName
+            )}&paymentEmail=${encodeURIComponent(
+              verifyData.paymentEmail ?? form.paymentEmail
+            )}&phone=${encodeURIComponent(
+              verifyData.phone ?? form.phone
+            )}&paymentStatus=${encodeURIComponent(
+              verifyData.paymentStatus ?? ""
+            )}&paymentId=${encodeURIComponent(
+              verifyData.paymentId ?? ""
             )}`
           );
         }

@@ -59,8 +59,12 @@ export async function createPurchaseDraft(payload: PurchaseFormPayload) {
   };
 
   const purchases = await readPurchases();
-  await writePurchases([record, ...purchases]);
-  await pushPurchaseEvent("draft_created", record);
+  try {
+    await writePurchases([record, ...purchases]);
+    await pushPurchaseEvent("draft_created", record);
+  } catch (error) {
+    console.warn("Unable to persist purchase draft locally. Continuing with transient draft.", error);
+  }
   return record;
 }
 
@@ -91,7 +95,12 @@ export async function updatePurchase(
   );
 
   const updated = nextPurchases.find((purchase) => purchase.id === id) ?? null;
-  await writePurchases(nextPurchases);
+  try {
+    await writePurchases(nextPurchases);
+  } catch (error) {
+    console.warn("Unable to persist purchase update locally.", error);
+    return updated;
+  }
 
   if (updated) {
     await pushPurchaseEvent(eventName, updated);

@@ -6,6 +6,7 @@ type RazorpayOrderResponse = {
   currency: string;
   receipt: string;
   status: string;
+  notes?: Record<string, string>;
 };
 
 type RazorpayPaymentResponse = {
@@ -53,6 +54,23 @@ export async function createRazorpayOrder(input: {
   if (!response.ok) {
     const text = await response.text();
     throw new Error(`Razorpay order creation failed: ${text}`);
+  }
+
+  return (await response.json()) as RazorpayOrderResponse;
+}
+
+export async function fetchRazorpayOrder(orderId: string) {
+  const response = await fetch(`https://api.razorpay.com/v1/orders/${orderId}`, {
+    method: "GET",
+    headers: {
+      Authorization: getRazorpayAuthHeader()
+    },
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Razorpay order fetch failed: ${text}`);
   }
 
   return (await response.json()) as RazorpayOrderResponse;

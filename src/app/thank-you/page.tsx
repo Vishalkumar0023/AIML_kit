@@ -11,6 +11,11 @@ type ThankYouPageProps = {
   searchParams?: {
     orderId?: string;
     deliveryStatus?: string;
+    fullName?: string;
+    paymentEmail?: string;
+    phone?: string;
+    paymentStatus?: string;
+    paymentId?: string;
   };
 };
 
@@ -83,28 +88,40 @@ function buildStatusCopy(input: {
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
   const orderId = searchParams?.orderId;
   const purchase = orderId ? await getPurchaseByProviderOrderId(orderId) : null;
+  const fallbackPurchase = purchase
+    ? null
+    : {
+        fullName: searchParams?.fullName ?? "Buyer",
+        paymentEmail: searchParams?.paymentEmail ?? "",
+        phone: searchParams?.phone ?? "",
+        paymentStatus: searchParams?.paymentStatus ?? "captured",
+        providerOrderId: orderId ?? "",
+        providerPaymentId: searchParams?.paymentId ?? "",
+      };
 
   const statusCopy = buildStatusCopy({
     deliveryStatus: purchase?.deliveryStatus ?? searchParams?.deliveryStatus,
     notes: purchase?.notes
   });
-  const isManualReview = purchase?.deliveryStatus === "manual_review";
+  const isManualReview =
+    (purchase?.deliveryStatus ?? searchParams?.deliveryStatus) === "manual_review";
   const shouldShowDriveAccessEmail =
     !!purchase &&
     !isManualReview &&
     purchase.driveAccessEmail &&
     purchase.driveAccessEmail !== purchase.paymentEmail;
-  const supportMessage = purchase
+  const messageSource = purchase ?? fallbackPurchase;
+  const supportMessage = messageSource
     ? [
         "Hi Vishal AI Academy,",
         "",
         "I completed the payment for the Python for AI/ML Beginner Starter Kit.",
-        `Buyer Name: ${purchase.fullName}`,
-        `Payment Email: ${purchase.paymentEmail}`,
-        purchase.phone ? `Phone Number: ${purchase.phone}` : "",
-        `Payment Status: ${purchase.paymentStatus}`,
-        `Razorpay Order ID: ${purchase.providerOrderId ?? "Pending"}`,
-        `Razorpay Payment ID: ${purchase.providerPaymentId ?? "Pending"}`,
+        `Buyer Name: ${messageSource.fullName}`,
+        `Payment Email: ${messageSource.paymentEmail}`,
+        messageSource.phone ? `Phone Number: ${messageSource.phone}` : "",
+        `Payment Status: ${messageSource.paymentStatus}`,
+        `Razorpay Order ID: ${messageSource.providerOrderId ?? "Pending"}`,
+        `Razorpay Payment ID: ${messageSource.providerPaymentId ?? "Pending"}`,
         "",
         "Please share the Google Drive access link.",
         ""
@@ -136,19 +153,20 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
               />
             </div>
 
-            {purchase ? (
+            {purchase || fallbackPurchase ? (
               <div className="mt-6 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 text-left text-sm leading-7 text-slate-700">
                 <p>
-                  <span className="font-semibold text-slate-950">Buyer:</span> {purchase.fullName}
+                  <span className="font-semibold text-slate-950">Buyer:</span>{" "}
+                  {(purchase ?? fallbackPurchase)?.fullName}
                 </p>
                 <p>
                   <span className="font-semibold text-slate-950">Payment email:</span>{" "}
-                  {purchase.paymentEmail}
+                  {(purchase ?? fallbackPurchase)?.paymentEmail}
                 </p>
-                {purchase.phone ? (
+                {(purchase ?? fallbackPurchase)?.phone ? (
                   <p>
                     <span className="font-semibold text-slate-950">Phone number:</span>{" "}
-                    {purchase.phone}
+                    {(purchase ?? fallbackPurchase)?.phone}
                   </p>
                 ) : null}
                 {shouldShowDriveAccessEmail ? (
@@ -159,15 +177,15 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
                 ) : null}
                 <p>
                   <span className="font-semibold text-slate-950">Payment status:</span>{" "}
-                  {purchase.paymentStatus}
+                  {(purchase ?? fallbackPurchase)?.paymentStatus}
                 </p>
                 <p>
                   <span className="font-semibold text-slate-950">Razorpay order ID:</span>{" "}
-                  {purchase.providerOrderId ?? "Pending"}
+                  {(purchase ?? fallbackPurchase)?.providerOrderId ?? "Pending"}
                 </p>
                 <p>
                   <span className="font-semibold text-slate-950">Razorpay payment ID:</span>{" "}
-                  {purchase.providerPaymentId ?? "Pending"}
+                  {(purchase ?? fallbackPurchase)?.providerPaymentId ?? "Pending"}
                 </p>
               </div>
             ) : null}
