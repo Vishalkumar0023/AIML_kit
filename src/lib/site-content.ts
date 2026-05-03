@@ -17,6 +17,9 @@ const telegramLink = process.env.NEXT_PUBLIC_TELEGRAM_LINK ?? "https://t.me/AIml
 const instagramLink =
   process.env.NEXT_PUBLIC_INSTAGRAM_LINK ?? "https://www.instagram.com/vishal_ai_academy";
 const youtubeLink = process.env.NEXT_PUBLIC_YOUTUBE_LINK ?? "";
+const roadmapLink =
+  process.env.NEXT_PUBLIC_FREE_ROADMAP_LINK ??
+  "https://drive.google.com/drive/folders/1rMByQD9bKKywfI6FAhDS5h3RiqEep_TL?usp=drive_link";
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "vishal.kumar.connect0@gmail.com";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -41,6 +44,7 @@ export const siteContent = {
     telegramLink,
     instagramLink,
     youtubeLink,
+    roadmapLink,
     contactEmail,
     siteUrl
   },

@@ -350,6 +350,11 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-5">
+                  <CTAButton href={siteContent.links.roadmapLink}>
+                    Open Free Roadmap
+                  </CTAButton>
+                </div>
               </div>
             </div>
           </div>
@@ -386,7 +391,7 @@ export default function HomePage() {
               >
                 {siteContent.finalCta.primaryCta}
               </CTAButton>
-              <CTAButton variant="secondary" scrollToId="free-roadmap">
+              <CTAButton variant="secondary" href={siteContent.links.roadmapLink}>
                 {siteContent.finalCta.secondaryCta}
               </CTAButton>
             </div>

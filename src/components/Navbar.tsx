@@ -77,7 +77,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <CTAButton variant="secondary" href={siteContent.links.roadmapLink}>
+            Free Roadmap
+          </CTAButton>
           <CTAButton
             paymentLink={siteContent.links.paymentLink}
             showPaymentFlow
@@ -118,6 +121,9 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          <CTAButton className="w-full" variant="secondary" href={siteContent.links.roadmapLink}>
+            Free Roadmap
+          </CTAButton>
           <CTAButton
             className="w-full"
             paymentLink={siteContent.links.paymentLink}

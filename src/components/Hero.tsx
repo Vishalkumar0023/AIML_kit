@@ -104,7 +104,7 @@ export default function Hero() {
             >
               {siteContent.hero.primaryCta}
             </CTAButton>
-            <CTAButton variant="secondary" scrollToId="free-roadmap">
+            <CTAButton variant="secondary" href={siteContent.links.roadmapLink}>
               {siteContent.hero.secondaryCta}
             </CTAButton>
           </div>
