@@ -197,6 +197,11 @@ export default function PaymentFollowupChooser() {
             page will show your order details, which you can send on Instagram, Telegram, or email to get
             the Google Drive link manually.
           </p>
+          <div className="mt-4 rounded-[1.25rem] border border-blue-100 bg-blue-50 px-4 py-3 text-sm leading-6 text-blue-950">
+            This checkout is charged in INR (Indian Rupees). International buyers can still pay with
+            supported cards or payment methods, and their bank may convert the final amount into their
+            local currency. Your bank may also add foreign exchange or cross-border fees.
+          </div>
 
           <div className="mt-6 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="grid gap-4">
@@ -242,8 +247,9 @@ export default function PaymentFollowupChooser() {
               </p>
               <div className="mt-4 grid gap-3">
                 {[
-                  "Razorpay creates a secure order for ₹99.",
+                  "Razorpay creates a secure order for ₹99 in INR.",
                   "You pay using card, UPI, wallet, or netbanking inside Razorpay Checkout.",
+                  "If you are paying from outside India, your bank may show the converted amount in your local currency.",
                   "Our server verifies the payment signature.",
                   "After payment, send the order details from the thank-you page on Instagram, Telegram, or email to receive the Drive link manually."
                 ].map((step, index) => (

@@ -54,7 +54,7 @@ export const siteContent = {
     payeeName: "Vishal AI Academy",
     productLine: "Python for AI/ML Beginner Starter Kit",
     helperText:
-      "If the UPI app does not open on desktop, copy the UPI ID and pay ₹99 from any UPI app manually."
+      "If the UPI app does not open on desktop, copy the UPI ID and pay ₹99 from any UPI app manually. International buyers are charged in INR, and their bank may convert the amount to local currency."
   },
   announcementBar: {
     text: "Launch Offer: Python for AI/ML Beginner Starter Kit at ₹99",
@@ -349,7 +349,7 @@ export const siteContent = {
     originalPrice: "₹299",
     cta: "Buy Now for ₹99",
     note:
-      "Razorpay checkout is automatic. Product delivery is manual after payment verification. Buyers can send the transaction details from the thank-you page on Instagram, Telegram, or email to receive the Google Drive link.",
+      "Razorpay checkout is automatic and charges in INR. International buyers can pay with supported cards, and their bank may convert the amount to local currency with possible FX or cross-border fees. Product delivery is manual after payment verification. Buyers can send the transaction details from the thank-you page on Instagram, Telegram, or email to receive the Google Drive link.",
     included: [
       "Python Basics Notes PDF",
       "50 Python Interview Q&A",
@@ -402,6 +402,11 @@ export const siteContent = {
           "After Razorpay payment verification, the thank-you page shows your order and payment details. Send those details on Instagram, Telegram, or email to receive the Google Drive link manually."
       },
       {
+        question: "Can students outside India pay?",
+        answer:
+          "Yes, if their card or payment method supports international payments. The checkout is charged in INR (Indian Rupees), and the buyer's bank may convert that amount into their local currency. Some banks may also add foreign exchange or cross-border fees."
+      },
+      {
         question: "Is there a refund?",
         answer:
           "Since this is a digital product, refunds are not available after delivery. Support will be provided if there is an access issue."
@@ -446,7 +451,7 @@ export const siteContent = {
     title: "Payment update received.",
     body: "We are checking your payment and delivery status now.",
     reminder:
-      "If your payment was captured, send the order details shown here on Instagram, Telegram, or email to receive the Google Drive link manually.",
+      "If your payment was captured, send the order details shown here on Instagram, Telegram, or email to receive the Google Drive link manually. If you paid from outside India, keep your final bank/card charge reference handy in case support needs help matching the payment.",
     primaryCta: "Back to Home",
     secondaryCta: "Contact Support"
   },
