@@ -96,7 +96,7 @@ function PreviewBox({
 
 export default function HomePage() {
   return (
-    <main className="pb-24 md:pb-0">
+    <main className="pb-32 md:pb-0">
       <Navbar />
       <Hero />
 
@@ -409,19 +409,28 @@ export default function HomePage() {
       </section>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-slate-200 bg-white/95 p-3 shadow-[0_-12px_30px_rgba(15,23,42,0.12)] backdrop-blur md:hidden">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <div className="mx-auto max-w-7xl">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Starter Kit</p>
             <p className="text-sm font-bold text-slate-950">{siteContent.stickyBar.text}</p>
           </div>
-          <CTAButton
-            className="shrink-0 px-4 py-3 text-xs font-bold uppercase tracking-[0.2em]"
-            paymentLink={siteContent.links.paymentLink}
-            showPaymentFlow
-            fallbackTargetId="free-roadmap"
-          >
-            {siteContent.stickyBar.cta}
-          </CTAButton>
+          <div className="mt-3 grid grid-cols-2 gap-2">
+            <CTAButton
+              className="w-full px-3 py-3 text-[11px] font-bold uppercase tracking-[0.18em]"
+              variant="secondary"
+              href={siteContent.links.roadmapLink}
+            >
+              Free Roadmap
+            </CTAButton>
+            <CTAButton
+              className="w-full px-3 py-3 text-[11px] font-bold uppercase tracking-[0.18em]"
+              paymentLink={siteContent.links.paymentLink}
+              showPaymentFlow
+              fallbackTargetId="free-roadmap"
+            >
+              {siteContent.stickyBar.cta}
+            </CTAButton>
+          </div>
         </div>
       </div>
 
