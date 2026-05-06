@@ -105,7 +105,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
   });
   const isManualReview =
     (purchase?.deliveryStatus ?? searchParams?.deliveryStatus) === "manual_review";
-  const isPaidAndVerified = purchase && (purchase.paymentStatus === "captured" || purchase.paymentStatus === "paid");
+  const isPaidAndVerified = purchase && purchase.paymentStatus === "captured";
   const shouldShowDriveAccessEmail =
     !!purchase &&
     !isManualReview &&
