@@ -20,9 +20,11 @@ export default function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">{title}</h2>
+      <h2 className="text-3xl font-bold tracking-tight leading-snug text-slate-950 sm:text-4xl">
+        {title}
+      </h2>
       {description ? (
-        <p className="mt-4 text-base leading-7 text-slate-600 sm:text-lg">{description}</p>
+        <p className="mt-4 text-base leading-relaxed text-slate-600 sm:text-lg">{description}</p>
       ) : null}
     </div>
   );

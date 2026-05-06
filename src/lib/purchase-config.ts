@@ -1,6 +1,6 @@
 export const purchaseConfig = {
-  productName: "Python for AI/ML Beginner Starter Kit",
-  amountInPaise: 9900,
+  productName: "AI Engineer Foundation System",
+  amountInPaise: 4900,
   currency: "INR",
   successPath: "/thank-you"
 } as const;

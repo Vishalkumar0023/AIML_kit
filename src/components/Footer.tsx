@@ -1,106 +1,51 @@
+import { platformNavItems } from "@/lib/platform-content";
 import { siteContent } from "@/lib/site-content";
-
-function TelegramIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
-    </svg>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-    </svg>
-  );
-}
-
-function YouTubeIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  );
-}
-
-function GmailIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-      <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
-    </svg>
-  );
-}
+import Link from "next/link";
 
 export default function Footer() {
-  const { instagramLink, telegramLink, youtubeLink, contactEmail } = siteContent.links;
-
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="section-shell grid gap-8 py-10 lg:grid-cols-[1fr_auto]">
-        <div>
-          <h3 className="text-lg font-semibold text-slate-950">{siteContent.brand.name}</h3>
-          <p className="mt-2 text-sm font-medium text-slate-700">{siteContent.brand.formalLine}</p>
-          <p className="mt-2 text-sm text-slate-500">{siteContent.brand.tagline}</p>
-          <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-500">
-            {siteContent.footer.disclaimer}
+    <footer className="section-divider border-t border-slate-200 bg-white/90 backdrop-blur-sm">
+      <div className="section-shell flex flex-col gap-8 py-10 md:flex-row md:items-end md:justify-between">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-700">
+            Vishal AI Academy
           </p>
-
-          <div className="mt-6 flex items-center gap-4">
-            {telegramLink ? (
-              <a
-                href={telegramLink}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Telegram"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600"
-              >
-                <TelegramIcon />
-              </a>
-            ) : null}
-            <a
-              href={instagramLink || "#"}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition hover:border-pink-300 hover:bg-pink-50 hover:text-pink-600"
-            >
-              <InstagramIcon />
-            </a>
-            <a
-              href={youtubeLink || "#"}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="YouTube"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition hover:border-red-300 hover:bg-red-50 hover:text-red-600"
-            >
-              <YouTubeIcon />
-            </a>
-            <a
-              href={`mailto:${contactEmail}`}
-              aria-label="Email"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-500 transition hover:border-amber-300 hover:bg-amber-50 hover:text-amber-600"
-            >
-              <GmailIcon />
-            </a>
-          </div>
+          <h2 className="mt-3 text-2xl font-bold tracking-tight leading-snug text-slate-950">
+            Learn Python and AI/ML with a cleaner path.
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-slate-600">
+            This platform combines free notes, tutorials, and beginner-friendly products into one
+            structured learning experience.
+          </p>
         </div>
 
-        <div className="grid gap-3 text-sm text-slate-600">
-          {telegramLink ? (
-            <a href={telegramLink} target="_blank" rel="noreferrer" className="hover:text-slate-950">
-              Telegram
+        <div className="flex flex-col items-start md:items-end gap-6">
+          <div className="flex flex-wrap gap-3">
+            {platformNavItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-950 hover:bg-slate-50"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-5 pr-2">
+            <a href={siteContent.links.instagramLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:-translate-y-1 hover:text-pink-600 transition-all duration-300" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
             </a>
-          ) : null}
-          <a href={instagramLink || "#"} target="_blank" rel="noreferrer" className="hover:text-slate-950">
-            Instagram
-          </a>
-          <a href={youtubeLink || "#"} target="_blank" rel="noreferrer" className="hover:text-slate-950">
-            YouTube
-          </a>
-          <a href={`mailto:${contactEmail}`} className="hover:text-slate-950">
-            {contactEmail}
-          </a>
+            <a href={siteContent.links.telegramLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:-translate-y-1 hover:text-blue-500 transition-all duration-300" title="Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </a>
+            <a href={siteContent.links.youtubeLink} target="_blank" rel="noreferrer" className="text-slate-400 hover:-translate-y-1 hover:text-red-600 transition-all duration-300" title="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+            <a href={`mailto:${siteContent.links.contactEmail}`} className="text-slate-400 hover:-translate-y-1 hover:text-slate-800 transition-all duration-300" title="Email Us">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

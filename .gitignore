@@ -18,6 +18,7 @@
 
 # misc
 .DS_Store
+**/.DS_Store
 *.pem
 
 # debug
@@ -43,6 +44,7 @@ yarn-error.log*
 next-env.d.ts
 
 # User Data (Do not commit PII)
+data/*.json
 data/leads.json
 data/purchases.json
 
@@ -54,5 +56,3 @@ __pycache__/
 paid_Bundle/
 
 # local asset/script workspaces
-public/
-scripts/

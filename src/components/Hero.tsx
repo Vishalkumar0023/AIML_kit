@@ -128,7 +128,7 @@ export default function Hero() {
               </div>
               <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-2 text-right">
                 <p className="text-[11px] uppercase tracking-[0.24em] text-amber-700">Offer</p>
-                <p className="text-lg font-bold text-slate-950">₹99</p>
+                <p className="text-lg font-bold text-slate-950">₹49</p>
               </div>
             </div>
 

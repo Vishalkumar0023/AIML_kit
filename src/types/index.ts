@@ -3,6 +3,60 @@ export type NavItem = {
   href: string;
 };
 
+export type LearningProduct = {
+  id: string;
+  type: "free" | "paid";
+  title: string;
+  tagline: string;
+  description: string;
+  priceLabel: string;
+  ctaLabel: string;
+  href?: string;
+  amountInPaise?: number;
+  features: string[];
+  badge?: string;
+};
+
+export type LearningNote = {
+  id: string;
+  title: string;
+  category: string;
+  access: "free" | "premium";
+  description: string;
+  bullets: string[];
+};
+
+export type LearningTutorial = {
+  id: string;
+  title: string;
+  description: string;
+  youtubeId: string;
+  level: string;
+  duration: string;
+};
+
+export type BlogCard = {
+  id: string;
+  title: string;
+  excerpt: string;
+  href: string;
+  category: string;
+};
+
+export type Testimonial = {
+  id: string;
+  name: string;
+  role: string;
+  feedback: string;
+};
+
+export type ConversionStat = {
+  id: string;
+  label: string;
+  value: string;
+  detail: string;
+};
+
 export type CopyCard = {
   title: string;
   description: string;

@@ -190,7 +190,7 @@ export default function PaymentFollowupChooser() {
             Secure Checkout
           </p>
           <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-950 sm:text-3xl">
-            Pay ₹99 and send your payment details for access
+            Pay ₹49 and send your payment details for access
           </h3>
           <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
             Enter your buyer details below and complete the Razorpay payment. After payment, the thank-you
@@ -247,7 +247,7 @@ export default function PaymentFollowupChooser() {
               </p>
               <div className="mt-4 grid gap-3">
                 {[
-                  "Razorpay creates a secure order for ₹99 in INR.",
+                  "Razorpay creates a secure order for ₹49 in INR.",
                   "You pay using card, UPI, wallet, or netbanking inside Razorpay Checkout.",
                   "If you are paying from outside India, your bank may show the converted amount in your local currency.",
                   "Our server verifies the payment signature.",

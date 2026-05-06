@@ -12,14 +12,14 @@ import type {
 
 const paymentLink =
   process.env.NEXT_PUBLIC_PAYMENT_LINK ??
-  "upi://pay?pa=8307188864@fam&pn=Vishal%20AI%20Academy&tn=Python%20for%20AI%2FML%20Beginner%20Starter%20Kit&am=99&cu=INR";
+  "upi://pay?pa=8307188864@fam&pn=Vishal%20AI%20Academy&tn=AI%20Engineer%20Foundation%20System&am=49&cu=INR";
 const telegramLink = process.env.NEXT_PUBLIC_TELEGRAM_LINK ?? "https://t.me/AIml_kit";
 const instagramLink =
   process.env.NEXT_PUBLIC_INSTAGRAM_LINK ?? "https://www.instagram.com/vishal_ai_academy";
-const youtubeLink = process.env.NEXT_PUBLIC_YOUTUBE_LINK ?? "";
+const youtubeLink = process.env.NEXT_PUBLIC_YOUTUBE_LINK ?? "https://www.youtube.com/@VishalAIAcademy";
 const roadmapLink =
   process.env.NEXT_PUBLIC_FREE_ROADMAP_LINK ??
-  "https://drive.google.com/drive/folders/1rMByQD9bKKywfI6FAhDS5h3RiqEep_TL?usp=drive_link";
+  "https://drive.google.com/drive/folders/1wPueuswZHK6x24dJGicEjW5mn0KWFOzv";
 const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "vishal.kumar.connect0@gmail.com";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -50,14 +50,14 @@ export const siteContent = {
   },
   payment: {
     upiId: "8307188864@fam",
-    amount: "₹99",
+    amount: "₹49",
     payeeName: "Vishal AI Academy",
-    productLine: "Python for AI/ML Beginner Starter Kit",
+    productLine: "AI Engineer Foundation System",
     helperText:
-      "If the UPI app does not open on desktop, copy the UPI ID and pay ₹99 from any UPI app manually. International buyers are charged in INR, and their bank may convert the amount to local currency."
+      "If the UPI app does not open on desktop, copy the UPI ID and pay ₹49 from any UPI app manually. International buyers are charged in INR, and their bank may convert the amount to local currency."
   },
   announcementBar: {
-    text: "Launch Offer: Python for AI/ML Beginner Starter Kit at ₹99",
+    text: "Launch Offer: AI Engineer Foundation System at ₹49",
     cta: "Get Access"
   },
   navItems: [
@@ -84,10 +84,10 @@ export const siteContent = {
       "Build 3 mini projects with source code",
       "Know what to learn before AI/ML"
     ],
-    launchPrice: "₹99",
-    originalPrice: "₹299",
-    primaryCta: "Get Starter Kit Now",
-    secondaryCta: "Download Free Roadmap",
+    launchPrice: "₹49",
+    originalPrice: "₹499",
+    primaryCta: "Get System Now",
+    secondaryCta: "Download Free Kit",
     trustLine: "No fake job guarantee • No advanced coding required • Made for students",
     mockupCards: [
       {
@@ -121,7 +121,7 @@ export const siteContent = {
         subtitle: "Clean files for practice"
       }
     ],
-    priceTag: "₹99 Launch Offer"
+    priceTag: "₹49 Launch Offer"
   },
   problemSection: {
     title: "Are You Also Facing This Problem?",
@@ -136,10 +136,10 @@ export const siteContent = {
     ],
     note:
       "If you checked even 2–3 boxes, you need a structured Python foundation before AI/ML.",
-    cta: "Start With the ₹99 Starter Kit"
+    cta: "Start With the AI Engineer Foundation System for ₹49"
   },
   includedSection: {
-    title: "What You Get Inside the Starter Kit",
+    title: "What You Get Inside the System",
     items: [
       {
         eyebrow: "PDF",
@@ -189,7 +189,7 @@ export const siteContent = {
           "Common mistakes students make before starting AI/ML."
       }
     ] satisfies CopyCard[],
-    cta: "Get Everything for ₹99"
+    cta: "Get Everything for ₹49"
   },
   previewSection: {
     title: "Preview What You’ll Learn",
@@ -260,20 +260,20 @@ export const siteContent = {
         description: "NumPy basics • Pandas basics • Matplotlib basics • ML roadmap • Next steps"
       }
     ] satisfies TimelineItem[],
-    cta: "Get the Starter Kit and Follow This Path"
+    cta: "Get the System and Follow This Path"
   },
   instructorSection: {
-    title: "Built by a Student, for Students",
+    title: "About Vishal AI Academy",
     copy:
-      "Hi, I’m Vishal. I’m a BTech CSE AIML student and I created this starter kit for students who want to start Python for AI/ML without confusion. I made this because many beginners directly jump into Machine Learning and then get stuck in Python basics, NumPy, Pandas, and project implementation.",
+      "Welcome to Vishal AI Academy — your destination to learn Artificial Intelligence, Machine Learning, Python, Deep Learning, Data Science, and future-ready tech skills in a simple, practical, and project-based way. This channel is built for students, beginners, and aspiring tech professionals who want to go from basics to advanced concepts without confusion. My goal is simple: Break down complex AI concepts into easy, structured learning so you can build real skills, real projects, and real career growth.",
     chips: [
-      "BTech CSE AIML Student",
-      "Python + AI/ML Learner",
-      "Student-focused teaching",
-      "No fake job promises"
+      "Artificial Intelligence (AI)",
+      "Machine Learning (ML)",
+      "Deep Learning",
+      "Python & Data Science"
     ],
     note:
-      "This is not a magic shortcut. You still have to practice. The kit simply removes confusion and gives you a proper order."
+      "Whether you're a beginner starting from zero or a student aiming to master AI, Vishal AI Academy is here to help you learn."
   },
   warningSection: {
     title: "Don’t Start AI/ML With Weak Python Basics",
@@ -293,7 +293,7 @@ export const siteContent = {
       "Mini projects",
       "Interview preparation"
     ].map((label) => ({ label })) satisfies ChecklistItem[],
-    cta: "Check What’s Inside the Kit"
+    cta: "Check What’s Inside the System"
   },
   bonusesSection: {
     title: "Launch Bonuses Included",
@@ -315,11 +315,11 @@ export const siteContent = {
         description: "A simple path to help you actually use the kit instead of letting it sit in downloads."
       },
       {
-        title: "Free Python for AI/ML Roadmap PDF",
-        description: "The same roadmap you can also request separately through the lead form."
+        title: "Free Python Starter Kit",
+        description: "The same beginner kit you can also request separately through the lead form."
       }
     ] satisfies CopyCard[],
-    cta: "Claim Starter Kit + Bonuses for ₹99"
+    cta: "Claim System + Bonuses for ₹49"
   },
   audienceSection: {
     title: "Who Should Get This?",
@@ -343,11 +343,11 @@ export const siteContent = {
     ]
   },
   pricingSection: {
-    title: "Get the Complete Starter Kit Today",
-    product: "Python for AI/ML Beginner Starter Kit",
-    launchPrice: "₹99",
-    originalPrice: "₹299",
-    cta: "Buy Now for ₹99",
+    title: "Get the Complete System Today",
+    product: "AI Engineer Foundation System",
+    launchPrice: "₹49",
+    originalPrice: "₹499",
+    cta: "Buy Now for ₹49",
     note:
       "Razorpay checkout is automatic and charges in INR. International buyers can pay with supported cards, and their bank may convert the amount to local currency with possible FX or cross-border fees. Product delivery is manual after payment verification. Buyers can send the transaction details from the thank-you page on Instagram, Telegram, or email to receive the Google Drive link.",
     included: [
@@ -386,7 +386,7 @@ export const siteContent = {
       {
         question: "Is this a full course?",
         answer:
-          "No. This is a starter kit, not a full video course. It is designed to help beginners start faster with notes, practice, interview questions, and projects."
+          "No. This is a foundation system, not a full video course. It is designed to help beginners start faster with notes, practice, interview questions, and projects."
       },
       {
         question: "Is this useful for complete beginners?",
@@ -436,15 +436,15 @@ export const siteContent = {
     title: "You Have Two Options",
     optionOne: "Keep watching random videos and stay confused.",
     optionTwo: "Follow one structured Python foundation path and start AI/ML properly.",
-    primaryCta: "Get Starter Kit for ₹99",
-    secondaryCta: "Download Free Roadmap"
+    primaryCta: "Get System for ₹49",
+    secondaryCta: "Download Free Starter Kit"
   },
   footer: {
     disclaimer:
       "This product is for educational purposes. It does not guarantee internship, job, exam result, or income."
   },
   stickyBar: {
-    text: "Python for AI/ML Starter Kit — ₹99",
+    text: "AI Engineer Foundation System — ₹49",
     cta: "Buy Now"
   },
   thankYou: {

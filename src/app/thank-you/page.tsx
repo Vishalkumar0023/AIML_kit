@@ -47,12 +47,12 @@ function buildStatusCopy(input: {
 
   if (input.deliveryStatus === "manual_review") {
     return {
-      badge: "Manual Access",
+      badge: "Payment Verified",
       description:
-        "Payment is confirmed. Send your transaction details on Instagram, Telegram, or email to receive the Google Drive link manually.",
+        "Your payment has been successfully verified. You can now access your paid bundle.",
       detail:
         input.notes ??
-        "Use the copy button below and paste the payment details exactly so support can verify your order faster."
+        "Click the button below to open the secure Google Drive folder."
     };
   }
 
@@ -105,6 +105,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
   });
   const isManualReview =
     (purchase?.deliveryStatus ?? searchParams?.deliveryStatus) === "manual_review";
+  const isPaidAndVerified = purchase && (purchase.paymentStatus === "captured" || purchase.paymentStatus === "paid");
   const shouldShowDriveAccessEmail =
     !!purchase &&
     !isManualReview &&
@@ -192,7 +193,18 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
 
             <p className="mt-6 text-sm leading-7 text-slate-600">{statusCopy.detail}</p>
 
-            {isManualReview && purchase ? (
+            {isPaidAndVerified ? (
+              <div className="mt-8 flex flex-col justify-center gap-4">
+                <a
+                  href="https://drive.google.com/drive/folders/1nQiWQowqmpBLuvzgGy82eZF6DIjZqcib"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-4 text-base font-bold text-white shadow-lg transition hover:bg-blue-700"
+                >
+                  Access AI Engineer Foundation System
+                </a>
+              </div>
+            ) : isManualReview && purchase ? (
               <div className="mt-6 space-y-4">
                 <div className="rounded-[1.5rem] border border-amber-200 bg-amber-50 p-5 text-left text-sm leading-7 text-amber-950">
                   <p className="font-semibold text-amber-950">Send this message to claim access</p>
@@ -204,7 +216,7 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
               </div>
             ) : null}
 
-            {isManualReview ? (
+            {!isPaidAndVerified && isManualReview ? (
               <div className="mt-6 grid gap-3 sm:grid-cols-3">
                 <a
                   href={siteContent.links.instagramLink}
