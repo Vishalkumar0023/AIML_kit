@@ -227,7 +227,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 description="Browse through the official AI Engineer Foundation System roadmap before you decide."
                 align="center"
               />
-              <div className="mt-10 mx-auto max-w-4xl overflow-hidden rounded-2xl border border-slate-200 shadow-xl" style={{ height: '700px' }}>
+              <div className="mt-10 mx-auto w-[90%] md:w-full max-w-4xl overflow-hidden rounded-2xl border border-slate-200 shadow-xl h-[450px] md:h-[700px]">
                 <iframe
                   src="/AI_Engineer_Foundation_System_Preview.pdf#toolbar=0"
                   className="w-full h-full border-0 bg-slate-100"
