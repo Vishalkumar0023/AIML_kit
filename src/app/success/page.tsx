@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SectionHeading from "@/components/SectionHeading";
 import { FadeInSection } from "@/components/motion/MotionPrimitives";
+import { getDirectBundleLink } from "@/lib/purchase-config";
 import SuccessSummary from "@/components/SuccessSummary";
 
 type SuccessPageProps = {
@@ -13,6 +14,8 @@ type SuccessPageProps = {
 };
 
 export default function SuccessPage({ searchParams }: SuccessPageProps) {
+  const directBundleLink = getDirectBundleLink();
+
   return (
     <main>
       <Navbar />
@@ -31,6 +34,7 @@ export default function SuccessPage({ searchParams }: SuccessPageProps) {
               productId={searchParams?.productId}
               paymentId={searchParams?.paymentId}
               orderId={searchParams?.orderId}
+              accessLink={directBundleLink}
             />
           </div>
         </div>

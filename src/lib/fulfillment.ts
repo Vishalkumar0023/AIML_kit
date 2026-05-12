@@ -9,18 +9,6 @@ import {
 import type { PurchaseRecord } from "@/types";
 
 export async function fulfillPurchase(purchase: PurchaseRecord) {
-  if (getDeliveryMode() === "manual") {
-    return updatePurchase(
-      purchase.id,
-      {
-        deliveryStatus: "manual_review",
-        notes:
-          "Payment verified. Buyer should send the payment transaction ID or order details on Instagram, Telegram, or email to receive the Drive link manually."
-      },
-      "delivery_manual_review"
-    );
-  }
-
   const directBundleLink = getDirectBundleLink();
 
   if (directBundleLink) {
@@ -31,6 +19,18 @@ export async function fulfillPurchase(purchase: PurchaseRecord) {
         notes: `Verified payment. Show direct bundle link to ${purchase.paymentEmail}.`
       },
       "delivery_link_ready"
+    );
+  }
+
+  if (getDeliveryMode() === "manual") {
+    return updatePurchase(
+      purchase.id,
+      {
+        deliveryStatus: "manual_review",
+        notes:
+          "Payment verified. Buyer should send the payment transaction ID or order details on Instagram, Telegram, or email to receive the Drive link manually."
+      },
+      "delivery_manual_review"
     );
   }
 

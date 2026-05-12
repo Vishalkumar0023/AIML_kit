@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import SectionHeading from "@/components/SectionHeading";
 import { getPurchaseByProviderOrderId } from "@/lib/order-store";
+import { getDirectBundleLink } from "@/lib/purchase-config";
 import { siteContent } from "@/lib/site-content";
 
 export const dynamic = "force-dynamic";
@@ -31,6 +32,17 @@ function buildStatusCopy(input: {
       detail:
         input.notes ??
         "If you do not see the folder immediately, refresh Google Drive or check the Promotions/Updates tab of the same Google account."
+    };
+  }
+
+  if (input.deliveryStatus === "link_ready") {
+    return {
+      badge: "Access Ready",
+      description:
+        "Your payment has been verified successfully. Your direct Google Drive access link is ready below.",
+      detail:
+        input.notes ??
+        "Click the access button below to open your paid bundle right away."
     };
   }
 
@@ -88,6 +100,7 @@ function buildStatusCopy(input: {
 export default async function ThankYouPage({ searchParams }: ThankYouPageProps) {
   const orderId = searchParams?.orderId;
   const purchase = orderId ? await getPurchaseByProviderOrderId(orderId) : null;
+  const directBundleLink = getDirectBundleLink();
   const fallbackPurchase = purchase
     ? null
     : {
@@ -106,6 +119,8 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
   const isManualReview =
     (purchase?.deliveryStatus ?? searchParams?.deliveryStatus) === "manual_review";
   const isPaidAndVerified = purchase && purchase.paymentStatus === "captured";
+  const isDirectLinkReady =
+    (purchase?.deliveryStatus ?? searchParams?.deliveryStatus) === "link_ready";
   const shouldShowDriveAccessEmail =
     !!purchase &&
     !isManualReview &&
@@ -193,10 +208,10 @@ export default async function ThankYouPage({ searchParams }: ThankYouPageProps) 
 
             <p className="mt-6 text-sm leading-7 text-slate-600">{statusCopy.detail}</p>
 
-            {isPaidAndVerified ? (
+            {isPaidAndVerified && (directBundleLink || isDirectLinkReady) ? (
               <div className="mt-8 flex flex-col justify-center gap-4">
                 <a
-                  href="https://drive.google.com/drive/folders/1nQiWQowqmpBLuvzgGy82eZF6DIjZqcib"
+                  href={directBundleLink || "#"}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-4 text-base font-bold text-white shadow-lg transition hover:bg-blue-700"
